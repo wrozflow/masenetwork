@@ -1,172 +1,170 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Mase Network - Coming Soon</title>
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Roboto:wght@400;700&display=swap');
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mase Network - Coming Soon</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
 
-  /* Reset */
-  *, *::before, *::after {
-    margin: 0; padding: 0; box-sizing: border-box;
-  }
-
-  body {
-    background: radial-gradient(circle at top left, #0f0c29, #302b63, #24243e);
-    font-family: 'Roboto', sans-serif;
-    color: #00fff7;
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 2rem;
-    overflow: hidden;
-  }
-
-  .container {
-    position: relative;
-    max-width: 720px;
-    background: rgba(10, 10, 30, 0.85);
-    border-radius: 20px;
-    padding: 50px 40px;
-    box-shadow:
-      0 0 15px #00fff7aa,
-      0 0 30px #00fff7bb,
-      0 0 45px #00fff7cc;
-    text-align: center;
-    overflow: hidden;
-  }
-
-  /* Futuristic animated shapes */
-  .shape {
-    position: absolute;
-    border: 2px solid #00fff7;
-    border-radius: 50%;
-    opacity: 0.1;
-    animation: pulse 4s ease-in-out infinite;
-  }
-
-  .shape1 {
-    width: 180px;
-    height: 180px;
-    top: -60px;
-    left: -60px;
-    animation-delay: 0s;
-  }
-
-  .shape2 {
-    width: 300px;
-    height: 300px;
-    bottom: -100px;
-    right: -100px;
-    animation-delay: 2s;
-  }
-
-  @keyframes pulse {
-    0%, 100% {
-      transform: scale(1);
-      opacity: 0.1;
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
-    50% {
-      transform: scale(1.1);
-      opacity: 0.3;
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+      color: #111827;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      position: relative;
+      padding: 2rem;
     }
-  }
 
-  h1 {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 3rem;
-    letter-spacing: 0.2em;
-    margin-bottom: 1.5rem;
-    color: #00fff7;
-    text-shadow: 0 0 10px #00fff7, 0 0 20px #00fff7;
-  }
+    /* Animated circles */
+    .circle {
+      position: absolute;
+      border-radius: 50%;
+      background-color: rgba(255, 255, 255, 0.06);
+      animation: float 10s infinite ease-in-out;
+      pointer-events: none;
+    }
 
-  p.description {
-    font-size: 1.15rem;
-    line-height: 1.6;
-    margin-bottom: 3rem;
-    color: #a0f8f7cc;
-    white-space: pre-line;
-  }
+    .circle:nth-child(1) {
+      width: 120px;
+      height: 120px;
+      top: 10%;
+      left: 5%;
+      animation-delay: 0s;
+    }
 
-  p.coming-soon {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 2.8rem;
-    letter-spacing: 0.15em;
-    margin-bottom: 3rem;
-    color: #00fff7;
-    text-shadow: 0 0 15px #00fff7, 0 0 30px #00fff7;
-  }
+    .circle:nth-child(2) {
+      width: 80px;
+      height: 80px;
+      bottom: 15%;
+      right: 10%;
+      animation-delay: 3s;
+    }
 
-  a.btn {
-    display: inline-block;
-    padding: 1.1rem 3rem;
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: #0a0a23;
-    background: linear-gradient(90deg, #00fff7 0%, #1e90ff 100%);
-    border-radius: 50px;
-    box-shadow: 0 8px 20px #00fff7bb;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    user-select: none;
-  }
-  a.btn:hover {
-    box-shadow: 0 12px 35px #00fff7ff;
-    transform: scale(1.08);
-  }
+    .circle:nth-child(3) {
+      width: 60px;
+      height: 60px;
+      top: 50%;
+      left: 60%;
+      animation-delay: 6s;
+    }
 
-  footer {
-    margin-top: 3rem;
-    font-size: 0.9rem;
-    color: #0099aa99;
-  }
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0px);
+      }
+      50% {
+        transform: translateY(-20px);
+      }
+    }
 
-  /* Responsive */
-  @media (max-width: 480px) {
+    .container {
+      position: relative;
+      z-index: 1;
+      max-width: 680px;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 16px;
+      padding: 3rem 2rem;
+      text-align: center;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+    }
+
     h1 {
-      font-size: 2.2rem;
+      font-size: 2.8rem;
+      font-weight: 700;
+      color: #1e3a8a;
+      margin-bottom: 1.2rem;
     }
+
     p.description {
-      font-size: 1rem;
-      margin-bottom: 2rem;
+      font-size: 1.125rem;
+      color: #374151;
+      line-height: 1.6;
+      white-space: pre-line;
+      margin-bottom: 2.5rem;
     }
+
     p.coming-soon {
       font-size: 2rem;
+      font-weight: 600;
+      color: #1e40af;
+      letter-spacing: 0.05em;
       margin-bottom: 2rem;
     }
-    .container {
-      padding: 35px 25px;
-    }
+
     a.btn {
-      padding: 0.9rem 2.5rem;
+      display: inline-block;
+      padding: 0.9rem 2.2rem;
+      background: #1d4ed8;
+      color: white;
+      font-weight: 600;
       font-size: 1rem;
+      border-radius: 8px;
+      text-decoration: none;
+      box-shadow: 0 8px 20px rgba(30, 64, 175, 0.3);
+      transition: background 0.3s ease, transform 0.2s ease;
     }
-  }
-</style>
+
+    a.btn:hover {
+      background: #2563eb;
+      transform: translateY(-2px);
+    }
+
+    footer {
+      margin-top: 2.5rem;
+      font-size: 0.85rem;
+      color: #6b7280;
+    }
+
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 2rem;
+      }
+      p.description {
+        font-size: 1rem;
+      }
+      p.coming-soon {
+        font-size: 1.5rem;
+      }
+      a.btn {
+        padding: 0.8rem 2rem;
+        font-size: 0.95rem;
+      }
+    }
+  </style>
 </head>
 <body>
-  <div class="container" role="main" aria-label="Mase Network coming soon page">
-    <div class="shape shape1"></div>
-    <div class="shape shape2"></div>
+  <!-- Animated background shapes -->
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
 
+  <main class="container" role="main" aria-label="Mase Network coming soon page">
     <h1>Mase Network</h1>
     <p class="description">
 Marketing data will become indispensable not only for human decisions but also for machine decision-making processes.
 
-For instance, imagine the next stage where beverage vending machines in subways are equipped with artificial intelligence, understanding which drink varieties can meet customer demands. At this point, 
-@Mase_Network
- aims to enable machines to make decisions that serve people by collecting human-sourced data to facilitate all these processes.
+For instance, imagine the next stage where beverage vending machines in subways are equipped with artificial intelligence, understanding which drink varieties can meet customer demands. At this point, Mase Network aims to enable machines to make decisions that serve people by collecting human-sourced data to facilitate all these processes.
     </p>
 
     <p class="coming-soon">COMING SOON</p>
 
-    <a href="https://x.com/mase_network" target="_blank" rel="noopener noreferrer" class="btn" role="button">
+    <a href="https://x.com/mase_network" target="_blank" rel="noopener noreferrer" class="btn">
       Visit our X Page
     </a>
-    <footer>© 2025 Yakup Kaba - All rights reserved.</footer>
-  </div>
+
+    <footer>© 2025 Mase Network</footer>
+  </main>
 </body>
 </html>
