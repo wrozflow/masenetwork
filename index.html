@@ -2,217 +2,58 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Mase Network - The Future is Connecting</title>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
-
-    :root {
-      --dark-navy: #0a0f1e;
-      --deep-blue: #10182f;
-      --accent-cyan: #00f6ff;
-      --accent-magenta: #ff00c1;
-      --light-gray: #cdd5e0;
-      --text-color: #e0e8f4;
-    }
-
-    *, *::before, *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      font-family: 'Poppins', sans-serif;
-      background-color: var(--dark-navy);
-      color: var(--text-color);
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      position: relative;
-      overflow: hidden;
-      padding: 2rem;
-    }
-
-    /* === Hareketli Parçacık Arka Planı === */
-    #particles-bg {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 0;
-      pointer-events: none;
-    }
-
-    .particle {
-      position: absolute;
-      background-color: var(--accent-cyan);
-      border-radius: 50%;
-      opacity: 0;
-      animation: rise 15s infinite linear;
-    }
-
-    @keyframes rise {
-      0% {
-        transform: translateY(100vh) scale(0.5);
-        opacity: 0.3;
-      }
-      50% {
-        opacity: 0.8;
-      }
-      100% {
-        transform: translateY(-10vh) scale(1);
-        opacity: 0;
-      }
-    }
-
-    /* Farklı boyut ve gecikmelerle parçacıklar oluşturma */
-    .particle:nth-child(1) { width: 2px; height: 2px; left: 10%; animation-delay: 0s; }
-    .particle:nth-child(2) { width: 4px; height: 4px; left: 20%; animation-delay: 2s; animation-duration: 12s; }
-    .particle:nth-child(3) { width: 3px; height: 3px; left: 30%; animation-delay: 4s; }
-    .particle:nth-child(4) { width: 2px; height: 2px; left: 40%; animation-delay: 1s; animation-duration: 18s; }
-    .particle:nth-child(5) { width: 3px; height: 3px; left: 50%; animation-delay: 7s; }
-    .particle:nth-child(6) { width: 4px; height: 4px; left: 60%; animation-delay: 3s; animation-duration: 14s; }
-    .particle:nth-child(7) { width: 2px; height: 2px; left: 70%; animation-delay: 8s; }
-    .particle:nth-child(8) { width: 3px; height: 3px; left: 80%; animation-delay: 5s; animation-duration: 16s; }
-    .particle:nth-child(9) { width: 2px; height: 2px; left: 90%; animation-delay: 9s; }
-    .particle:nth-child(10) { width: 4px; height: 4px; left: 5%; animation-delay: 6s; }
-
-
-    /* === Ana İçerik Kartı === */
-    .container {
-      position: relative;
-      z-index: 1;
-      max-width: 720px;
-      width: 100%;
-      background: rgba(16, 24, 47, 0.6);
-      border: 1px solid rgba(0, 246, 255, 0.2);
-      border-radius: 20px;
-      padding: 3rem;
-      text-align: center;
-      box-shadow: 0 10px 60px rgba(0, 0, 0, 0.4);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      transform: perspective(1000px) rotateX(-2deg);
-      transition: transform 0.5s ease;
-    }
-    
-    .container:hover {
-        transform: perspective(1000px) rotateX(0deg);
-    }
-
-    /* === Tipografi ve Elementler === */
-    h1 {
-      font-size: 3.5rem;
-      font-weight: 700;
-      margin-bottom: 1rem;
-      /* Gradient Text Efekti */
-      background: linear-gradient(90deg, var(--accent-cyan), var(--accent-magenta));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      animation: text-glow 4s infinite alternate;
-    }
-    
-    @keyframes text-glow {
-        from {
-            filter: drop-shadow(0 0 5px var(--accent-cyan));
-        }
-        to {
-            filter: drop-shadow(0 0 15px var(--accent-magenta));
-        }
-    }
-
-    p.description {
-      font-size: 1.1rem;
-      font-weight: 300;
-      color: var(--light-gray);
-      line-height: 1.7;
-      max-width: 600px;
-      margin: 0 auto 2.5rem auto;
-    }
-
-    .status-badge {
-      display: inline-block;
-      padding: 0.5rem 1.5rem;
-      border: 1px solid var(--accent-cyan);
-      border-radius: 50px;
-      font-size: 1rem;
-      font-weight: 600;
-      color: var(--accent-cyan);
-      letter-spacing: 0.1em;
-      margin-bottom: 3rem;
-      text-transform: uppercase;
-      box-shadow: 0 0 15px rgba(0, 246, 255, 0.2);
-    }
-
-    a.btn {
-      display: inline-block;
-      padding: 1rem 2.5rem;
-      background: linear-gradient(90deg, var(--accent-cyan), var(--accent-magenta));
-      color: var(--dark-navy);
-      font-weight: 700;
-      font-size: 1rem;
-      border-radius: 10px;
-      text-decoration: none;
-      box-shadow: 0 8px 30px rgba(0, 246, 255, 0.3);
-      transition: all 0.3s ease;
-      position: relative;
-      overflow: hidden;
-    }
-
-    a.btn:hover {
-      transform: translateY(-4px) scale(1.05);
-      box-shadow: 0 12px 40px rgba(255, 0, 193, 0.4);
-    }
-
-    footer {
-      margin-top: 3rem;
-      font-size: 0.9rem;
-      color: var(--light-gray);
-      opacity: 0.6;
-    }
-
-    /* === Mobil Cihazlar İçin Duyarlılık === */
-    @media (max-width: 768px) {
-      .container {
-        padding: 2rem;
-        transform: none;
-      }
-      h1 {
-        font-size: 2.5rem;
-      }
-      p.description {
-        font-size: 1rem;
-      }
-    }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mase Network</title>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
+<body class="bg-white text-gray-900 font-sans">
 
-  <div id="particles-bg">
-    <div class="particle"></div><div class="particle"></div>
-    <div class="particle"></div><div class="particle"></div>
-    <div class="particle"></div><div class="particle"></div>
-    <div class="particle"></div><div class="particle"></div>
-    <div class="particle"></div><div class="particle"></div>
-  </div>
-
-  <main class="container" role="main" aria-label="Mase Network coming soon page">
-    <h1>Mase Network</h1>
-    <p class="description">
-      We are building the neural layer for intelligent machines. By harnessing human-sourced data, Mase Network will empower AI to make smarter, more human-centric decisions, bridging the gap between digital intelligence and real-world needs.
+  <!-- Hero Section -->
+  <section class="min-h-screen flex flex-col justify-center items-center px-6 text-center bg-gradient-to-br from-indigo-100 via-white to-blue-100">
+    <h1 class="text-5xl font-extrabold mb-6 text-gray-800">What is Mase Network?</h1>
+    <p class="max-w-2xl text-lg text-gray-600">
+      Mase Network is a platform that rewards users for sharing their shopping data, unlocking valuable marketing insights that are otherwise hard to access. These insights support autonomous retail systems and manufacturers with real-world consumer behavior analytics.
     </p>
+  </section>
 
-    <div class="status-badge">COMING SOON</div>
+  <!-- Roadmap Section -->
+  <section class="px-6 py-20 bg-white">
+    <h2 class="text-4xl font-bold text-center mb-14 text-gray-800">📍 2025 Roadmap</h2>
+    <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-10">
+      <div class="bg-white p-6 rounded-xl shadow-md border hover:shadow-xl transition">
+        <div class="text-indigo-500 text-3xl mb-3">🚀</div>
+        <h3 class="text-2xl font-semibold mb-2">Q3 2025</h3>
+        <ul class="list-disc list-inside text-gray-700 space-y-1">
+          <li>Website development</li>
+          <li>Community building</li>
+          <li>MVP launch</li>
+          <li>Documentation release</li>
+          <li>Data collection</li>
+          <li>Team & advisor expansion</li>
+        </ul>
+      </div>
+      <div class="bg-white p-6 rounded-xl shadow-md border hover:shadow-xl transition">
+        <div class="text-blue-500 text-3xl mb-3">📊</div>
+        <h3 class="text-2xl font-semibold mb-2">Q4 2025</h3>
+        <ul class="list-disc list-inside text-gray-700 space-y-1">
+          <li>Data validation engine</li>
+          <li>Beta dashboard release</li>
+          <li>Regional data zoning</li>
+          <li>Pre-sponsorship deals</li>
+        </ul>
+      </div>
+    </div>
+  </section>
 
-    <a href="https://x.com/mase_network" target="_blank" rel="noopener noreferrer" class="btn">
-      Follow our Journey on X
-    </a>
-
-    <footer>© 2025 Mase Network. All rights reserved.</footer>
-  </main>
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white py-12 px-6 text-center">
+    <div class="mb-4 text-2xl font-semibold">📥 Contact</div>
+    <ul class="space-y-2 text-lg">
+      <li>🗞️ Twitter: <a href="https://x.com/Mase_Network" class="underline text-blue-400">x.com/Mase_Network</a></li>
+      <li>✦ Discord: <a href="https://discord.gg/jPEZJ4B5" class="underline text-purple-400">discord.gg/jPEZJ4B5</a></li>
+      <li>🌐 Website: <a href="https://mase.network" class="underline text-teal-400">mase.network</a></li>
+    </ul>
+  </footer>
 
 </body>
 </html>
